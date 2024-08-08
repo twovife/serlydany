@@ -52,7 +52,7 @@ const Undangan = () => {
                 <div className="absolute w-full z-20 left-1/2 -translate-x-1/2 bottom-36" id="content">
                     <div className="flex-col flex items-center justify-center mt-24 bg-white/50 rounded-lg w-1/2 mx-auto shadow-lg shadow-black p-4">
                         <div>Kepada</div>
-                        <div className="text-2xl font-semibold">Aziz Nur Ihsan</div>
+                        <div className="text-2xl font-semibold">Nama Tamu Undangan</div>
                     </div>
                 </div>
 
