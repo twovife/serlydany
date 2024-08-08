@@ -23,15 +23,17 @@ const yesteryear = Rouge_Script({
 const Undangan = () => {
     const [isCoverOpen, setIsCoverOpen] = useState(false);
 
-    const [audio, setAudio] = useState(null);
+    const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {
-        const newAudio = new Audio("../../public/lagu.mp3");
+        const newAudio = new Audio("/lagu.mp3");
+
         newAudio.preload = "auto";
         newAudio.onloadeddata = () => {
             setAudio(newAudio);
         };
+        //         console.log("audio is playing");
         return () => {
             if (audio) {
                 audio.pause();
@@ -39,8 +41,23 @@ const Undangan = () => {
         };
     }, []);
 
+    useEffect(() => {
+        //         console.log(audio);
+
+        if (audio) {
+            if (isPlaying) {
+                audio.play().catch((error) => {
+                    console.error("Autoplay prevented:", error);
+                });
+            } else {
+                audio.pause();
+            }
+        }
+    }, [audio, isPlaying]);
+
     const openCover = (e: any) => {
         setIsCoverOpen(true);
+        setIsPlaying(true);
     };
 
     const coverIsClosed = {
