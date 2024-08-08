@@ -32,7 +32,7 @@ const yesteryear = Whisper({
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });
 
-const GaleryFoto = () => {
+const GaleryFotos = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, margin: "100px -50px 0px" });
 
@@ -70,8 +70,7 @@ const GaleryFoto = () => {
     };
 
     return (
-        <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 h-dvh relative z-0">
-            <Image src={galeri8} alt="wayang" className="absolute z-0 bottom-0 right-0" />
+        <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 relative z-0">
             <Image src={galeri9} alt="wayang" className="absolute z-0 bottom-0 right-0 translate-x-1/2 w-1/2" />
             <motion.div
                 initial="initial"
@@ -84,57 +83,66 @@ const GaleryFoto = () => {
                 <motion.div variants={animatedChild} className="w-3/4 font-light mb-3 text-start px-5">
                     Kami bersyukur, dipertemukan Allah diwaktu terbaik, kini kami menanti hari istimewa kami.
                 </motion.div>
-                <motion.div className="p-5">
+                <motion.div className="p-5 relative z-20 mb-3">
                     <LightGallery
                         speed={500}
                         plugins={[lgZoom, lgThumbnail, lgAutoPlay, lgPager]}
-                        elementClassNames="grid grid-cols-3 gap-x-4 gap-y-6"
+                        elementClassNames="grid grid-cols-2 gap-x-4 gap-y-6"
                         mode="lg-fade">
                         <motion.a variants={animatedChild} href={"galeri1.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri1} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+                            <Image alt="foto praweding" src={galeri1} />
                         </motion.a>
                         <motion.a variants={animatedChild} href={"galeri3.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri3} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+                            <Image alt="foto praweding" src={galeri3} />
                         </motion.a>
                         <motion.a variants={animatedChild} href={"galeri2.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri2} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+                            <Image alt="foto praweding" src={galeri2} />
                         </motion.a>
                         <motion.a variants={animatedChild} href={"galeri4.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri4} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+                            <Image alt="foto praweding" src={galeri4} />
                         </motion.a>
-                        <motion.a variants={animatedChild} href={"galeri5.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri5} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+
+                        <motion.a variants={animatedChild} href={"galeri7.jpeg"}>
+                            <Image alt="foto praweding" src={galeri7} />
                         </motion.a>
                         <motion.a variants={animatedChild} href={"galeri6.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri6} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
-                        </motion.a>
-                        <motion.a variants={animatedChild} href={"galeri7.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri7} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+                            <Image alt="foto praweding" src={galeri6} />
                         </motion.a>
                         <motion.a variants={animatedChild} href={"galeri5.jpeg"}>
-                            <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri5} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
-                            </AspectRatio>
+                            <Image alt="foto praweding" src={galeri5} />
+                        </motion.a>
+                        <motion.a variants={animatedChild} href={"galeri5.jpeg"}>
+                            <Image alt="foto praweding" src={galeri1} />
                         </motion.a>
                     </LightGallery>
                 </motion.div>
+                <motion.div>
+                    <motion.div variants={animatedChild} className={`${yesteryear.className} text-5xl mt-6 mb-3 text-center w-full px-5`}>
+                        Love Story
+                    </motion.div>
+                    <motion.a variants={animatedChild} href={"galeri6.jpeg"}>
+                        <Image alt="foto praweding" src={galeri6} className="mb-12" />
+                    </motion.a>
+                    <motion.div variants={animatedChild} className={`text-lg text-center mt-6 mb-6 w-full px-5`}>
+                        <span className="font-light text-xl mb-3">2023</span>
+                        <br />
+                        <span className="font-light">Awal Komitmen</span>
+                    </motion.div>
+                    <motion.div variants={animatedChild} className={`text-lg text-center mt-6 mb-6 w-full px-5`}>
+                        <span className="font-light text-xl mb-3">13 Januari 2024</span>
+                        <br />
+                        <span className="font-light">Lamaran</span>
+                    </motion.div>
+                    <motion.div variants={animatedChild} className={`text-lg text-center mt-6 mb-12 w-full px-5`}>
+                        <span className="font-light text-xl mb-3">28 Agustus 2024</span>
+                        <br />
+                        <span className="font-light">Menikah</span>
+                    </motion.div>
+                </motion.div>
+                <Image src={galeri8} alt="wayang" className="w-full" />
             </motion.div>
         </motion.div>
     );
 };
 
-export default GaleryFoto;
+export default GaleryFotos;

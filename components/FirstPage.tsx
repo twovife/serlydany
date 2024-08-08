@@ -7,11 +7,11 @@ import { delay, motion } from "framer-motion";
 
 const FirstPage = () => {
     const variasi = {
-        initial: { opacity: 0 },
+        initial: { opacity: 50 },
         show: {
             opacity: 100,
             transition: {
-                delay: 1.5,
+                delay: 1,
                 duration: 1,
                 staggerChildren: 1,
             },
@@ -19,18 +19,18 @@ const FirstPage = () => {
     };
 
     const childVariation = {
-        initial: { y: -100, opacity: 0 },
+        initial: { scale: 0, opacity: 0 },
         show: {
-            y: 0,
+            scale: 1,
             opacity: 100,
             transition: {
                 //                 delay: 2,
-                duration: 1,
+                duration: 2,
             },
         },
     };
     return (
-        <motion.div variants={variasi} animate="show" initial="initial" className="bg-gray-200 h-screen relative">
+        <motion.div variants={variasi} animate="show" initial="initial" className="bg-gray-200 h-dvh relative">
             <motion.div variants={childVariation} className="py-6">
                 <Image src={page2a} alt="img1" className="w-1/6 mx-auto" />
             </motion.div>

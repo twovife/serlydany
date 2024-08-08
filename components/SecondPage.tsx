@@ -4,17 +4,17 @@ import page3b from "../public/Page3b.png";
 import page3d from "../public/Page3d.png";
 import page3c from "../public/Page3c.png";
 import Image from "next/image";
-import { delay, motion, useInView } from "framer-motion";
-import { Yesteryear } from "@next/font/google";
+import { delay, easeIn, easeOut, motion, useInView } from "framer-motion";
+import { Whisper, Yesteryear } from "@next/font/google";
 
-const yesteryear = Yesteryear({
+const yesteryear = Whisper({
     subsets: ["latin"],
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });
 
 const SecondPage = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "100px -50px 0px" });
+    const isInView = useInView(ref, { once: false, margin: "400px 0px -50px 0px" });
 
     const show = {
         opacity: 100,
@@ -24,35 +24,48 @@ const SecondPage = () => {
         },
     };
     const hide = {
+        opacity: 50,
+    };
+
+    const opacitynol = {
         opacity: 0,
+    };
+    const opacityNolShoww = {
+        opacity: 100,
+        transition: {
+            duration: 1,
+            easeIn,
+        },
     };
 
     const animatedContainer = {
-        initial: { y: 100 },
+        initial: { opacity: 50 },
         show: {
-            y: 0,
+            opacity: 100,
             transition: {
                 duration: 1,
-                staggerChildren: 0.2,
+                staggerChildren: 0.5,
             },
         },
     };
 
     const animatedChild = {
-        initial: { y: 50, opacity: 0 },
+        initial: { scale: 0, opacity: 0 },
         show: {
+            scale: 1,
             opacity: 100,
-            y: 0,
             transition: {
-                duration: 0.1,
+                duration: 1,
             },
         },
     };
 
     return (
-        <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 h-screen relative z-0">
-            <Image src={page3d} alt="wayang" className="absolute z-10 bottom-0 left-0 w-1/4" />
-            <Image src={page3c} alt="wayang" className="absolute z-10 bottom-0 right-0 w-1/4" />
+        <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 h-dvh relative z-0">
+            <motion.div animate={isInView ? show : opacitynol}>
+                <Image src={page3d} alt="wayang kiri" className="absolute z-10 bottom-0 left-0 w-1/4" />
+                <Image src={page3c} alt="wayang kanan" className="absolute z-10 bottom-0 right-0 w-1/4" />
+            </motion.div>
             <motion.div
                 initial="initial"
                 animate={isInView ? "show" : "initial"}
@@ -68,7 +81,7 @@ const SecondPage = () => {
                     <Image src={page3a} alt="foto_serli" />
                 </motion.div>
                 <motion.div variants={animatedChild} className={`${yesteryear.className} text-3xl mt-2`}>
-                    Sherly Pungki Puspitasari
+                    Sherly Pungki Purita
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-light">
                     Putri Pertama
