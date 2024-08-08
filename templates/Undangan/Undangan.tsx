@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import page1a from "../../public/Page1a.png";
 import page1b from "../../public/Page1b.png";
 import page6a from "../../public/Page6a.png";
@@ -22,8 +22,25 @@ const yesteryear = Rouge_Script({
 
 const Undangan = () => {
     const [isCoverOpen, setIsCoverOpen] = useState(false);
-    const togleCover = (e: any) => {
-        setIsCoverOpen(!isCoverOpen);
+
+    const [audio, setAudio] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    useEffect(() => {
+        const newAudio = new Audio("../../public/lagu.mp3");
+        newAudio.preload = "auto";
+        newAudio.onloadeddata = () => {
+            setAudio(newAudio);
+        };
+        return () => {
+            if (audio) {
+                audio.pause();
+            }
+        };
+    }, []);
+
+    const openCover = (e: any) => {
+        setIsCoverOpen(true);
     };
 
     const coverIsClosed = {
@@ -56,7 +73,7 @@ const Undangan = () => {
                         <div className={`text-6xl font-bold ${yesteryear.className} mb-3`}>Sherly & Dany</div>
                         <div className="font-semibold">28 . 08 . 24</div>
                     </div>
-                    <div onClick={() => setIsCoverOpen(true)}>
+                    <div onClick={openCover}>
                         <div className="font-semibold text-white px-4 py-1.5 bg-orange-800 rounded-lg text-sm border border-yellow-900">
                             <span>Buka Undangan</span>
                         </div>
