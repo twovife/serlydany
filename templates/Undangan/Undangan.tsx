@@ -14,6 +14,7 @@ import GaleryFoto from "@/components/GaleryFoto";
 import WeddingGift from "@/components/WeddingGift";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import GaleryFotos from "@/components/GaleryFotos";
+import { useRouter } from "next/router";
 
 const yesteryear = Rouge_Script({
     subsets: ["latin"],
@@ -73,6 +74,9 @@ const Undangan = () => {
         transitionEnd: { display: "none" },
     };
 
+    const router = useRouter();
+    const toParam = router.query?.to;
+
     return (
         <div className="max-w-md mx-auto overflow-hidden font-sans">
             <motion.div animate={isCoverOpen ? coverIsOpen : coverIsClosed} className="bg-stone-200 p-0 h-dvh relative z-0 overflow-hidden">
@@ -88,7 +92,9 @@ const Undangan = () => {
                     <div className="flex-col flex items-center justify-center">
                         <div className="font-semibold mb-3">THE WEDDING OF</div>
                         <div className={`text-6xl font-bold ${yesteryear.className} mb-3`}>Sherly & Dany</div>
-                        <div className="font-semibold">28 . 08 . 24</div>
+                        <div className="font-semibold mb-3">28 . 08 . 24</div>
+                        <div className="font-semibold underline">Dear</div>
+                        <div className="font-bold text-lg mb-3">{toParam || "nama"}</div>
                     </div>
                     <div onClick={openCover}>
                         <div className="font-semibold text-white px-4 py-1.5 bg-orange-800 rounded-lg text-sm border border-yellow-900">
