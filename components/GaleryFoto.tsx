@@ -24,14 +24,13 @@ import galeri8 from "../public/Page8c.png";
 import galeri9 from "../public/Page2b.png";
 
 import { delay, motion, useInView } from "framer-motion";
-import { Whisper, Yesteryear } from "@next/font/google";
+import { Alex_Brush, Whisper, Yesteryear } from "@next/font/google";
 import { AspectRatio } from "./ui/aspect-ratio";
 
-const yesteryear = Whisper({
+const alex_brush = Alex_Brush({
     subsets: ["latin"],
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });
-
 const GaleryFoto = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, margin: "100px -50px 0px" });
@@ -78,7 +77,7 @@ const GaleryFoto = () => {
                 animate={isInView ? "show" : "initial"}
                 variants={animatedContainer}
                 className="flex flex-col text-sm lg:text-base">
-                <motion.div variants={animatedChild} className={`${yesteryear.className} text-5xl mt-6 mb-3 text-start w-full px-5`}>
+                <motion.div variants={animatedChild} className={`${alex_brush.className} text-5xl mt-6 mb-3 text-start w-full px-5`}>
                     Galery Foto
                 </motion.div>
                 <motion.div variants={animatedChild} className="w-3/4 font-light mb-3 text-start px-5">

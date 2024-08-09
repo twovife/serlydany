@@ -5,9 +5,19 @@ import page3d from "../public/Page3d.png";
 import page3c from "../public/Page3c.png";
 import Image from "next/image";
 import { delay, easeIn, easeOut, motion, useInView } from "framer-motion";
-import { Whisper, Yesteryear } from "@next/font/google";
+import { Alex_Brush, Charmonman, Cinzel, Whisper, Yesteryear } from "@next/font/google";
 
-const yesteryear = Whisper({
+const alex_brush = Alex_Brush({
+    subsets: ["latin"],
+    weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
+});
+
+const charmonman = Charmonman({
+    subsets: ["latin"],
+    weight: ["400", "700"], // Anda bisa menyesuaikan sesuai kebutuhan
+});
+
+const cinzel = Cinzel({
     subsets: ["latin"],
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });
@@ -71,7 +81,7 @@ const SecondPage = () => {
                 animate={isInView ? "show" : "initial"}
                 variants={animatedContainer}
                 className="flex flex-col items-center justify-center h-full text-center text-sm lg:text-base">
-                <motion.div variants={animatedChild} className={`${yesteryear.className} text-5xl mt-6 mb-3`}>
+                <motion.div variants={animatedChild} className={`${alex_brush.className} text-5xl mt-6 mb-3`}>
                     Bride & groom
                 </motion.div>
                 <motion.div variants={animatedChild} className="w-3/4 font-light mb-3">
@@ -80,7 +90,7 @@ const SecondPage = () => {
                 <motion.div variants={animatedChild} className="w-1/2">
                     <Image src={page3a} alt="foto_serli" />
                 </motion.div>
-                <motion.div variants={animatedChild} className={`${yesteryear.className} text-3xl mt-2`}>
+                <motion.div variants={animatedChild} className={`${charmonman.className} text-2xl mt-2`}>
                     Sherly Pungki Purita
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-light">
@@ -95,7 +105,7 @@ const SecondPage = () => {
                 <motion.div variants={animatedChild} className="w-1/2">
                     <Image src={page3b} alt="foto_serli" />
                 </motion.div>
-                <motion.div variants={animatedChild} className={`${yesteryear.className} text-3xl mt-2`}>
+                <motion.div variants={animatedChild} className={`${charmonman.className} text-2xl mt-2`}>
                     Dany Rizky Syaifuloh
                 </motion.div>
                 <motion.div variants={animatedChild}>Putra Kedua</motion.div>

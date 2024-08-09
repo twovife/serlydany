@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import page7a from "../public/Page7a.png";
+import page7b from "../public/Page7b.png";
 import page6a from "../public/Page6a.png";
 import page2c from "../public/Page2c.png";
 import galeri12 from "../public/galeri12.jpeg";
@@ -6,13 +8,13 @@ import page2b from "../public/Page2b.png";
 import mandiri from "../public/mandiri.webp";
 import Image from "next/image";
 import { delay, motion, useInView } from "framer-motion";
-import { Whisper, Yesteryear } from "@next/font/google";
+import { Alex_Brush, Whisper, Yesteryear } from "@next/font/google";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { GiftIcon } from "lucide-react";
 import { AspectRatio } from "./ui/aspect-ratio";
 
-const yesteryear = Whisper({
+const yesteryear = Alex_Brush({
     subsets: ["latin"],
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });
@@ -55,10 +57,11 @@ const WeddingGift = () => {
     };
 
     return (
-        <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 z-0">
-            <motion.div className="relative z-0 mb-3">
-                <Image src={page6a} alt="wayang" className="absolute z-10 bottom-0 left-0 opacity-40 h-full object-fill" />
-                {/* <Image src={page7b} alt="wayang" className="absolute z-10 bottom-0 right-0 w-3/4" /> */}
+        <>
+            <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 h-dvh relative z-0 overflow-hidden">
+                {/* <Image src={page6a} alt="wayang" className="absolute z-10 bottom-0 left-0 opacity-40 h-full object-fill" /> */}
+                <Image src={page7b} alt="wayang" className="absolute z-10 -bottom-10 right-0" />
+                <Image src={page7a} alt="wayang" className="absolute z-[0] -bottom-10 left-0 h-2/3 w-auto" />
                 <motion.div className="p-5 relative z-20">
                     <div className="rounded-lg bg-white/20 p-2 shadow-lg text-center">
                         <motion.div
@@ -101,30 +104,7 @@ const WeddingGift = () => {
                     </div>
                 </motion.div>
             </motion.div>
-            <motion.div
-                initial="initial"
-                animate={isInView ? "show" : "initial"}
-                variants={animatedContainer}
-                className="bg-gray-200 h-dvh relative">
-                <motion.div className="w-1/2 mx-auto mb-3" variants={animatedChild}>
-                    <AspectRatio ratio={4 / 6} className="rounded-full border-2 border-orange-900 bg-muted overflow-hidden mx-auto">
-                        <Image src={galeri12} alt="img" style={{ objectFit: "cover", objectPosition: "bottom" }} />
-                    </AspectRatio>
-                </motion.div>
-                <motion.div variants={animatedChild} className="w-2/3 mx-auto text-center text-xs lg:text-sm relative z-10">
-                    Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa
-                    restu. Atas kehadiran dan doa restunya, kami mengucapkan terima kasih.
-                </motion.div>
-                <motion.div variants={animatedChild} className="text-center my-6">
-                    Kami yang berbahagia,
-                </motion.div>
-                <div className={`text-4xl font-bold ${yesteryear.className} mb-3 text-center relative z-40`}>Sherly & Dany</div>
-                <div className="py-6">
-                    <Image src={page2b} alt="img1" className="absolute bottom-0 -translate-y-1/2 w-1/3 left-1/2 -translate-x-1/2 z-0" />
-                </div>
-                <Image src={page2c} alt="img1" className="absolute w-full z-[12] bottom-0 left-0" />
-            </motion.div>
-        </motion.div>
+        </>
     );
 };
 

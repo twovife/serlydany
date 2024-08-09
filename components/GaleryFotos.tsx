@@ -72,12 +72,13 @@ const GaleryFotos = () => {
     return (
         <motion.div ref={ref} animate={isInView ? show : hide} className="bg-gray-200 relative z-0">
             <Image src={galeri9} alt="wayang" className="absolute z-0 bottom-0 right-0 translate-x-1/2 w-1/2" />
+
             <motion.div
                 initial="initial"
                 animate={isInView ? "show" : "initial"}
                 variants={animatedContainer}
                 className="flex flex-col text-sm lg:text-base">
-                <motion.div variants={animatedChild} className={`${yesteryear.className} text-5xl mt-6 mb-3 text-start w-full px-5`}>
+                {/* <motion.div variants={animatedChild} className={`${yesteryear.className} text-5xl mt-6 mb-3 text-start w-full px-5`}>
                     Galery Foto
                 </motion.div>
                 <motion.div variants={animatedChild} className="w-3/4 font-light mb-3 text-start px-5">
@@ -115,26 +116,26 @@ const GaleryFotos = () => {
                             <Image alt="foto praweding" src={galeri1} />
                         </motion.a>
                     </LightGallery>
-                </motion.div>
+                </motion.div> */}
                 <motion.div>
                     <motion.div variants={animatedChild} className={`${yesteryear.className} text-5xl mt-6 mb-3 text-center w-full px-5`}>
                         Love Story
                     </motion.div>
-                    <motion.a variants={animatedChild} href={"galeri6.jpeg"}>
+                    <motion.div variants={animatedChild} className="p-6 rounded-lg overflow-hidden">
                         <Image alt="foto praweding" src={galeri6} className="mb-12" />
-                    </motion.a>
+                    </motion.div>
                     <motion.div variants={animatedChild} className={`text-lg text-center mt-6 mb-6 w-full px-5`}>
-                        <span className="font-light text-xl mb-3">2023</span>
+                        <span className="font-bold text-xl mb-3">2023</span>
                         <br />
                         <span className="font-light">Awal Komitmen</span>
                     </motion.div>
                     <motion.div variants={animatedChild} className={`text-lg text-center mt-6 mb-6 w-full px-5`}>
-                        <span className="font-light text-xl mb-3">13 Januari 2024</span>
+                        <span className="font-bold text-xl mb-3">13 Januari 2024</span>
                         <br />
                         <span className="font-light">Lamaran</span>
                     </motion.div>
                     <motion.div variants={animatedChild} className={`text-lg text-center mt-6 mb-12 w-full px-5`}>
-                        <span className="font-light text-xl mb-3">28 Agustus 2024</span>
+                        <span className="font-bold text-xl mb-3">28 Agustus 2024</span>
                         <br />
                         <span className="font-light">Menikah</span>
                     </motion.div>
