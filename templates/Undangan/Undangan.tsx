@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import page1a from "../../public/Page1a.png";
 import page1b from "../../public/Page1b.png";
 import page1c from "../../public/Page1c.png";
@@ -37,7 +37,7 @@ const Undangan = () => {
     const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const newAudio = new Audio("/lagu.mp3");
 
         newAudio.preload = "auto";
@@ -52,7 +52,7 @@ const Undangan = () => {
         };
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         //         console.log(audio);
 
         if (audio) {
