@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import page1a from "../../public/Page1a.png";
 import page1b from "../../public/Page1b.png";
 import page1c from "../../public/Page1c.png";
@@ -20,6 +20,7 @@ import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
 import MainPage from "@/components/MainPage";
 import LastPage from "@/components/LastPage";
 import { PauseCircle, PlayCircle } from "lucide-react";
+import ReactAudioPlayer from "react-audio-player";
 
 const charmonman = Charmonman({
     subsets: ["latin"],
@@ -34,45 +35,27 @@ const cinzel = Cinzel({
 const Undangan = () => {
     const [isCoverOpen, setIsCoverOpen] = useState(false);
 
-    const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+    //     const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+    const audioRef = useRef<ReactAudioPlayer | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    useLayoutEffect(() => {
-        const newAudio = new Audio("/lagu.mp3");
-
-        newAudio.preload = "auto";
-        newAudio.onloadeddata = () => {
-            setAudio(newAudio);
-        };
-        //         console.log("audio is playing");
-        return () => {
-            if (audio) {
-                audio.pause();
-            }
-        };
-    }, []);
-
-    useLayoutEffect(() => {
-        //         console.log(audio);
-
-        if (audio) {
-            if (isPlaying) {
-                audio.play().catch((error) => {
-                    console.error("Autoplay prevented:", error);
-                });
+    useEffect(() => {
+        if (audioRef.current && audioRef.current.audioEl.current) {
+            if (!isPlaying) {
+                audioRef.current.audioEl.current.pause();
             } else {
-                audio.pause();
+                audioRef.current.audioEl.current.play();
             }
         }
-    }, [audio, isPlaying]);
+    }, [audioRef, isPlaying]);
+
+    const handlePlayPause = () => {
+        setIsPlaying(!isPlaying);
+    };
 
     const openCover = (e: any) => {
         setIsCoverOpen(true);
         setIsPlaying(true);
-    };
-
-    const toogler = (e: any) => {
-        setIsPlaying(!isPlaying);
     };
 
     const coverIsClosed = {
@@ -93,13 +76,14 @@ const Undangan = () => {
 
     return (
         <div className="max-w-md mx-auto overflow-hidden font-sans relative">
+            <ReactAudioPlayer ref={audioRef} src="lagu.mp3" autoPlay={false} controls={false} />
             <motion.div
                 animate={isCoverOpen ? coverIsOpen : coverIsClosed}
                 className="bg-stone-200 p-0 h-dvh relative z-0 overflow-hidden ">
-                <Image src={page1a} alt="image1" className="absolute top-0 left-0 w-full h-auto z-10" />
+                <Image src={page1a} alt="image1" className="absolute top-0 left-0 w-full h-auto z-20" />
 
-                <Image src={page1b} alt="image1" className="absolute bottom-0 left-0 w-full h-auto z-10" />
-                <div className="flex-col flex h-full relative z-20">
+                <Image src={page1b} alt="image1" className="absolute bottom-0 left-0 w-full h-auto z-20" />
+                <div className="flex-col flex h-full relative z-10">
                     <div className="flex-[2] flex items-end justify-center">
                         <h1 className={`${charmonman.className} text-5xl font-semibold`}>Sherly & Dany</h1>
                     </div>
@@ -113,7 +97,7 @@ const Undangan = () => {
                             </Button>
                         </div>
                         <div className="flex-1">
-                            <Image src={page1c} alt="image1" className="absolute bottom-24 right-0 w-auto h-1/2 z-[9]" />
+                            <Image src={page1c} alt="image1" className="absolute bottom-24 right-0 w-auto h-3/5 z-0" />
                         </div>
                     </div>
                 </div>
@@ -131,7 +115,7 @@ const Undangan = () => {
                     <LastPage />
                 </>
             )}
-            <Button className="fixed bottom-10 z-50 p-0 animate-bounce" size="icon" onClick={toogler}>
+            <Button className="fixed bottom-10 z-50 p-0 animate-bounce" size="icon" onClick={handlePlayPause}>
                 {isPlaying ? <PauseCircle /> : <PlayCircle />}
             </Button>
         </div>

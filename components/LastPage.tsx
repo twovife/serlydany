@@ -11,6 +11,10 @@ const alex_brush = Alex_Brush({
     subsets: ["latin"],
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });
+const charmonman = Charmonman({
+    subsets: ["latin"],
+    weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
+});
 
 const LastPage = () => {
     const ref = useRef(null);
@@ -75,7 +79,7 @@ const LastPage = () => {
                 <motion.div variants={animatedChild} className="text-center my-6">
                     Kami yang berbahagia,
                 </motion.div>
-                <div className={`text-4xl font-bold ${alex_brush.className} mb-3 text-center relative z-40`}>Sherly & Dany</div>
+                <div className={`text-4xl font-bold ${charmonman.className} mb-3 text-center relative z-40`}>Sherly & Dany</div>
                 <div className="py-6">
                     <Image
                         src={page2b}

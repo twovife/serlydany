@@ -91,12 +91,12 @@ const SecondPage = () => {
                     <Image src={page3a} alt="foto_serli" />
                 </motion.div>
                 <motion.div variants={animatedChild} className={`${charmonman.className} text-2xl mt-2`}>
-                    Sherly Pungki Purita
+                    Sherly Pungki Puritasari
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-light">
                     Putri Pertama
                 </motion.div>
-                <motion.div variants={animatedChild} className="font-semibold mb-3">
+                <motion.div variants={animatedChild} className=" mb-3">
                     Bpk. Sahrul Mukarom & Ibu Sudartin
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-light mb-3">
@@ -106,7 +106,7 @@ const SecondPage = () => {
                     <Image src={page3b} alt="foto_serli" />
                 </motion.div>
                 <motion.div variants={animatedChild} className={`${charmonman.className} text-2xl mt-2`}>
-                    Dany Rizky Syaifuloh
+                    Dany Rizky Syaifulloh
                 </motion.div>
                 <motion.div variants={animatedChild}>Putra Kedua</motion.div>
                 <motion.div variants={animatedChild}>Bpk. Syaifudin & Ibu Zumrotus Solekah (Almh)</motion.div>

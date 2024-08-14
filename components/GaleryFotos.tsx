@@ -24,10 +24,10 @@ import galeri8 from "../public/Page8c.png";
 import galeri9 from "../public/Page2b.png";
 
 import { delay, motion, useInView } from "framer-motion";
-import { Whisper, Yesteryear } from "@next/font/google";
+import { Alex_Brush, Whisper, Yesteryear } from "@next/font/google";
 import { AspectRatio } from "./ui/aspect-ratio";
 
-const yesteryear = Whisper({
+const yesteryear = Alex_Brush({
     subsets: ["latin"],
     weight: ["400"], // Anda bisa menyesuaikan sesuai kebutuhan
 });

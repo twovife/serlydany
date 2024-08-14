@@ -85,7 +85,7 @@ const SaveDate = () => {
                     Rabu, 28 Agustus 2024
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-semibold">
-                    Pukul 07:00 wib
+                    Pukul : 07.30 WIB
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-semibold mb-10">
                     Tempat : Masjid Ibrahim ( Pagak )
@@ -97,7 +97,7 @@ const SaveDate = () => {
                     Rabu, 28 Agustus 2024
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-semibold">
-                    Pukul 14:00 wib - selesai
+                    Pukul : 14.00 WIB - selesai
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-semibold mb-3">
                     Tempat : Dsn. Pagak RT/RW : 02/01 <br /> Ds. Bangle Kec. Ngadiluwih <br /> Kab. Kediri

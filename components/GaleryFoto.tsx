@@ -18,6 +18,7 @@ import galeri2 from "../public/galeri2.jpeg";
 import galeri3 from "../public/galeri3.jpeg";
 import galeri4 from "../public/galeri4.jpeg";
 import galeri5 from "../public/galeri5.jpeg";
+import gambar1 from "../public/gambar1.jpg";
 import galeri6 from "../public/galeri6.jpeg";
 import galeri7 from "../public/galeri7.jpeg";
 import galeri8 from "../public/Page8c.png";
@@ -124,9 +125,9 @@ const GaleryFoto = () => {
                                 <Image alt="foto praweding" src={galeri7} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
                             </AspectRatio>
                         </motion.a>
-                        <motion.a variants={animatedChild} href={"galeri5.jpeg"}>
+                        <motion.a variants={animatedChild} href={"gambar1.jpg"}>
                             <AspectRatio ratio={1 / 1} className="rounded-md bg-muted overflow-hidden">
-                                <Image alt="foto praweding" src={galeri5} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
+                                <Image alt="foto praweding" src={gambar1} style={{ objectFit: "cover", objectPosition: "bottom" }} fill />
                             </AspectRatio>
                         </motion.a>
                     </LightGallery>
