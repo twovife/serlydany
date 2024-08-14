@@ -100,7 +100,7 @@ const SaveDate = () => {
                     Pukul : 14.00 WIB - selesai
                 </motion.div>
                 <motion.div variants={animatedChild} className="font-semibold mb-3">
-                    Tempat : Dsn. Pagak RT/RW : 02/01 <br /> Ds. Bangle Kec. Ngadiluwih <br /> Kab. Kediri
+                    Tempat : Dsn. Pagak RT/RW : 02/01 <br /> Ds. Banggle Kec. Ngadiluwih <br /> Kab. Kediri
                 </motion.div>
                 <motion.div variants={animatedChild} className="w-1/2 mb-3">
                     <Image src={page4a} alt="foto_serli" className="mx-auto w-1/3" />

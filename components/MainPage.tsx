@@ -49,7 +49,7 @@ const MainPage = () => {
             <motion.div variants={variasi} className="flex flex-col relative z-20 items-center justify-center gap-6 h-full" id="content">
                 <motion.div variants={childVariation} className="w-1/3">
                     <AspectRatio ratio={4 / 6} className="rounded-full border-2 border-orange-900 bg-muted overflow-hidden mx-auto">
-                        <Image src={galeri12} alt="img" style={{ objectFit: "cover", objectPosition: "bottom" }} />
+                        <Image src={galeri12} alt="img" style={{ objectFit: "fill", objectPosition: "bottom" }} fill />
                     </AspectRatio>
                 </motion.div>
                 <motion.div variants={childVariation} className="flex-col flex items-center justify-center">

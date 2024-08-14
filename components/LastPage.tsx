@@ -69,7 +69,7 @@ const LastPage = () => {
             <motion.div initial="initial" animate={isInView ? "show" : "initial"} variants={animatedContainer}>
                 <motion.div className="w-1/3 mx-auto mb-3" variants={animatedChild} ref={ref}>
                     <AspectRatio ratio={4 / 6} className="rounded-full border-2 border-orange-900 bg-muted overflow-hidden mx-auto">
-                        <Image src={galeri12} alt="img" style={{ objectFit: "cover", objectPosition: "bottom" }} />
+                        <Image src={galeri12} alt="img" style={{ objectFit: "contain", objectPosition: "bottom" }} fill />
                     </AspectRatio>
                 </motion.div>
                 <motion.div variants={animatedChild} className="w-2/3 mx-auto text-center text-xs lg:text-sm relative z-10">
